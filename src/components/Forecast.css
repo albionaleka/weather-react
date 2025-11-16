@@ -1,0 +1,135 @@
+.forecast {
+  width: 100%;
+  margin-top: 5vh;
+  color: #ffffff;
+}
+
+.forecast h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.forecast-container {
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  overflow-x: auto;
+}
+
+.forecast-item {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px 15px;
+  flex: 1;
+  min-width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.forecast-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.forecast-day {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.forecast-icon {
+  width: 60px;
+  height: 60px;
+}
+
+.forecast-temp {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.forecast-desc {
+  font-size: 12px;
+  text-align: center;
+  margin: 0;
+  text-transform: capitalize;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .forecast {
+    margin-top: 3vh;
+  }
+
+  .forecast h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .forecast-container {
+    gap: 10px;
+  }
+
+  .forecast-item {
+    padding: 15px 10px;
+    min-width: 85px;
+  }
+
+  .forecast-day {
+    font-size: 14px;
+  }
+
+  .forecast-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .forecast-temp {
+    font-size: 18px;
+  }
+
+  .forecast-desc {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .forecast-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .forecast-item {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px 20px;
+    min-width: unset;
+    width: 100%;
+  }
+
+  .forecast-day {
+    font-size: 16px;
+    min-width: 50px;
+  }
+
+  .forecast-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .forecast-temp {
+    font-size: 18px;
+  }
+
+  .forecast-desc {
+    font-size: 12px;
+    text-align: right;
+    max-width: 100px;
+  }
+}

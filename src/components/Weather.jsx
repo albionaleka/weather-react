@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { AppContext } from "../context/AppContextDefinition";
+import Forecast from "./Forecast";
 import search_icon from "../assets/search.png";
-import clear_icon from "../assets/clear.png";
 import humidity_icon from "../assets/humidity.png";
 import wind_icon from "../assets/wind.png";
 import "./Weather.css";
@@ -38,17 +38,19 @@ const Weather = () => {
 
       {weatherData && (
         <>
-          <img
-            src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
-            alt={weatherData.weather[0].description}
-            className="weather-icon"
-          />
+          <div className="weather-info">
+            <img
+              src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png`}
+              alt={weatherData.weather[0].description}
+              className="weather-icon"
+            />
 
-          <p className="temperature">{Math.round(weatherData?.main?.temp)}°C</p>
-
-          <p className="location">
-            {weatherData?.name}, {weatherData?.sys?.country}
-          </p>
+            <p className="temperature">{Math.round(weatherData?.main?.temp)}°C</p>
+            <p className="description">{weatherData?.weather[0]?.description}</p>
+            <p className="location">
+              {weatherData?.name}, {weatherData?.sys?.country}
+            </p>
+          </div>
 
           <div className="weather-data">
             <div className="col">
@@ -66,7 +68,23 @@ const Weather = () => {
                 <span>Wind Speed</span>
               </div>
             </div>
+
+            <div className="col">
+              <div>
+                <p>{weatherData?.main?.feels_like ? Math.round(weatherData.main.feels_like) : 'N/A'}°C</p>
+                <span>Feels Like</span>
+              </div>
+            </div>
+
+            <div className="col">
+              <div>
+                <p>{weatherData?.main?.pressure || 'N/A'} hPa</p>
+                <span>Pressure</span>
+              </div>
+            </div>
           </div>
+
+          <Forecast />
         </>
       )}
     </div>
