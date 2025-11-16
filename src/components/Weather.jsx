@@ -1,20 +1,25 @@
-import React from "react";
+import { useContext, useState } from "react";
+import { AppContext } from "../context/AppContextDefinition";
 import search_icon from "../assets/search.png";
 import clear_icon from "../assets/clear.png";
-import cloud_icon from "../assets/cloud.png";
-import drizzle_icon from "../assets/drizzle.png";
 import humidity_icon from "../assets/humidity.png";
-import rain_icon from "../assets/rain.png";
-import snow_icon from "../assets/snow.png";
 import wind_icon from "../assets/wind.png";
 import "./Weather.css";
 
 const Weather = () => {
+  const { weatherData, loading, fetchWeather } = useContext(AppContext);
+  const [city, setCity] = useState(""); 
+  
+  const getWeather = (city) => {
+    fetchWeather(city);
+  }
+
   return (
     <div className="weather">
+      {loading && <p>Loading...</p> }
       <div className="search-bar">
-        <input type="text" placeholder="Search" />
-        <img src={search_icon} alt="" />
+        <input type="text" value={city} onChange={(e) => setCity(e.target.value)} placeholder="Search" />
+        <img src={search_icon} onClick={() => getWeather(city)} alt="" />
       </div>
       <img src={clear_icon} alt="" className="weather-icon" />
       <p className="temperature">16°C</p>
