@@ -28,8 +28,8 @@ A simple and responsive **React Weather App** that uses the **OpenWeatherMap API
 
 ## 1. Clone or Download the Project
 ```bash
-git clone https://github.com/your-username/react-weather-app.git
-cd react-weather-app
+git clone https://github.com/albionaleka/weather-react.git
+cd weather-react
 ```
 
 ## 2. Install Dependencies
