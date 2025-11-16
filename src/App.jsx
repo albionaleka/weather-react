@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import { useEffect, useContext } from 'react'
 import { AppContext } from './context/AppContextDefinition';
 import './App.css'
@@ -7,8 +8,14 @@ function App() {
   useEffect(() => {
     fetchWeather('Ferizaj');
   }, []);
+=======
+import React from "react";
+import Weather from "./components/Weather";
+>>>>>>> Stashed changes
 
+const App = () => {
   return (
+<<<<<<< Updated upstream
     <>
       <div className="App">
         <h1>Weather App</h1>
@@ -25,5 +32,12 @@ function App() {
     </>
   )
 }
+=======
+    <div className="app">
+      <Weather />
+    </div>
+  );
+};
+>>>>>>> Stashed changes
 
-export default App
+export default App;
