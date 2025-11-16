@@ -7,7 +7,7 @@ export const AppProvider = ({ children }) => {
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-    
+
   const fetchWeather = async (city) => {
     setLoading(true);
     setError(null);
@@ -16,6 +16,7 @@ export const AppProvider = ({ children }) => {
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
       );
       setWeatherData(response.data);
+      console.log(response.data);
     } catch {
       setError("Failed to fetch weather data. Please try again.");
     } finally {
